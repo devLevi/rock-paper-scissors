@@ -1,43 +1,84 @@
-let playerWins = 0
-let computerWins = 0
-
 let computerScore = document.getElementById('computerScore')
 let playerScore = document.getElementById('playerScore')
 let round = document.getElementById('roundCounter')
+let results = document.getElementById('gameInfo')
+let winningImg = document.getElementById('winningImg')
+let playerWins = 0
+let computerWins = 0
+let gameRound = 0
 
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
+let playerMove
+let computerMove
+
+function playerTurn(playerChoice) {
+  if (playerChoice == 1) {
+    playerMove = 'rock'
+  } else if (playerChoice == 2) {
+    playerMove = 'paper'
+  } else {
+    playerMove = 'scissors'
+  }
+  console.log('player move = ' + playerMove)
 }
+
 function computerTurn() {
   const options = ['rock', 'paper', 'scissors']
-  return options[Math.floor(Math.random() * options.length)]
+  computerMove = options[Math.floor(Math.random() * options.length)]
+  console.log('computer move = ' + computerMove)
 }
 
-function playRound(playerSelection, computer) {
-  let player = playerSelection.toLowerCase()
+function playRound() {
   if (
-    (player === 'rock' && computer === 'paper') ||
-    (player === 'paper' && computer === 'scissors') ||
-    (player === 'scissors' && computer === 'rock')
+    (playerMove === 'rock' && computerMove === 'paper') ||
+    (playerMove === 'paper' && computerMove === 'scissors') ||
+    (playerMove === 'scissors' && computerMove === 'rock')
   ) {
+    results.innerHTML = `You chose: ${playerMove} <br> Compuer chose: ${computerMove} <br> Computer wins this round!`
     computerWins++
-    console.log('computer wins', computerWins)
-    return `You lose! ${capitalize(computer)} beats ${player}!`
+    computerScore.innerHTML = computerWins
+    winningImg.src = `images/${computerMove}.png`
+    gameRound++
+    console.log('gameRound = ', gameRound)
+    round.innerHTML = gameRound
   } else if (
-    (computer === 'rock' && player === 'paper') ||
-    (computer === 'paper' && player === 'scissors') ||
-    (computer === 'scissors' && player === 'rock')
+    (computerMove === 'rock' && playerMove === 'paper') ||
+    (computerMove === 'paper' && playerMove === 'scissors') ||
+    (computerMove === 'scissors' && playerMove === 'rock')
   ) {
+    results.innerHTML = `You chose: ${playerMove} <br> Compuer chose: ${computerMove} <br>You win this round!`
     playerWins++
-    console.log('player wins:', playerWins)
-    return `You win! ${capitalize(player)} beats ${computer}!`
-  } else if (computer === player) {
-    return `Tie! ${capitalize(player)} = ${computer}`
-  } else {
-    return `${player} is not a valid selection. Try again`
+    playerScore.innerHTML = playerWins
+    winningImg.src = `images/${playerMove}.png`
+    gameRound++
+    round.innerHTML = gameRound
+  } else if (computerMove === playerMove) {
+    console.log('tie = ', computerMove, playerMove)
+    results.innerHTML = 'Tie!'
+    winningImg.src = 'images/tie.svg'
+    gameRound++
+    round.innerHTML = gameRound
+  }
+  if (gameRound > 4) {
+    if (computerWins == playerWins) {
+      results.innerHTML = 'EVERYBODY WINS'
+    } else if (computerWins > playerWins) {
+      results.innerHTML = 'COMPUTER WINS'
+    } else {
+      results.innerHTML = 'YOU WIN!'
+    }
+    setTimeout(resetStats, 1000)
+    function resetStats() {
+      playerWins = 0
+      computerWins = 0
+      gameRound = 0
+      results.innerHTML = "Let's play again"
+      computerScore.innerHTML = 0
+      playerScore.innerHTML = 0
+      round.innerHTML = 0
+      winningImg.src = '/'
+    }
   }
 }
 
 // let playerSelection = prompt('Rock Paper or Scissors?')
-let computer = computerTurn()
-// console.log(playRound(playerSelection, computer))``
+// let computer = computerTurn()

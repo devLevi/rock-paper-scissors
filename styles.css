@@ -1,12 +1,21 @@
+* {
+  font-family: Roboto;
+}
+
+body {
+  margin: 0;
+}
+
 header {
+  display: flex;
+  justify-content: center;
+  height: 155px;
+  background-color: #3498db;
+  color: #fff;
   text-align: center;
 }
 
-.pgTitle {
-  margin-top: 50px;
-}
-
-img {
+.moveIcon {
   max-width: 50px;
   border-radius: 40%;
   padding: 30px;
@@ -65,6 +74,35 @@ container {
   border: 1px solid rgb(33, 0, 153);
 }
 
+#winningImg {
+  margin: 10px;
+  width: 180px;
+  height: 180px;
+}
+
 footer {
   text-align: center;
+}
+
+#gameInfo {
+  text-align: center;
+  font-size: 1.1em;
+}
+
+footer {
+  padding: 10px;
+  box-shadow: 10px 0 5px -2px #888;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+footer div a {
+  color: black;
+  transition: ease-in-out 1s;
+}
+footer div a:hover {
+  color: rgb(220, 152, 247);
 }

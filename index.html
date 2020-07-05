@@ -7,14 +7,20 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>Rock Paper Scissors</title>
   </head>
   <body>
     <header>
-      <h2 class="pgTitle">Rock | Paper | Scissors</h2>
-      <h3 class="pgSubtitle">The ultimate game of chance</h3>
-      <p class="round">Round: <span id="roundCounter">1</span>/5</p>
+      <div class="title">
+        <h2 class="pgTitle">Rock | Paper | Scissors</h2>
+        <h3 class="pgSubtitle">The ultimate game of chance</h3>
+        <p class="round">Round: <span id="roundCounter">1</span>/5</p>
+      </div>
     </header>
     <main>
       <container>
@@ -26,21 +32,39 @@
             </p>
 
             <div class="rock">
-              <img src="images/rock.png" alt="rock" />
+              <img
+                id="compRock"
+                class="moveIcon"
+                src="images/rock.png"
+                alt="rock"
+              />
             </div>
             <div class="paper">
-              <img src="images/paper.png" alt="paper" />
+              <img
+                id="compPaper"
+                class="moveIcon"
+                src="images/paper.png"
+                alt="paper"
+              />
             </div>
             <div class="scissors">
-              <img src="images/scissors.png" alt="scissors" />
+              <img
+                id="compScissors"
+                class="moveIcon"
+                src="images/scissors.png"
+                alt="scissors"
+              />
             </div>
           </div>
         </div>
         <div class="stats">
+          <p id="gameInfo">The game begins</p>
           <h2 class="scoreTitle">
             <span id="computerScore">0</span> - <span id="playerScore">0</span>
           </h2>
-          <div class="faceOff"></div>
+          <div class="faceOff">
+            <img id="winningImg" src="" alt="" />
+          </div>
         </div>
         <div class="playerParts">
           <div class="playerIcons">
@@ -48,15 +72,32 @@
               Player: <br />
               Make your move!
             </p>
-            <div class="rock">
-              <img class="playerImage" src="images/rock.png" alt="rock" />
-            </div>
-            <div class="paper">
-              <img class="playerImage" src="images/paper.png" alt="paper" />
-            </div>
-            <div class="scissors">
+            <div
+              class="rock"
+              onClick="playerTurn(1); computerTurn(); playRound();"
+            >
               <img
-                class="playerImage"
+                class="moveIcon playerImage"
+                src="images/rock.png"
+                alt="rock"
+              />
+            </div>
+            <div
+              class="paper"
+              onClick="playerTurn(2); computerTurn(); playRound();"
+            >
+              <img
+                class="moveIcon playerImage"
+                src="images/paper.png"
+                alt="paper"
+              />
+            </div>
+            <div
+              class="scissors"
+              onClick="playerTurn(3); computerTurn(); playRound();"
+            >
+              <img
+                class="moveIcon playerImage"
                 src="images/scissors.png"
                 alt="scissors"
               />
@@ -67,7 +108,7 @@
     </main>
     <footer>
       <div>
-        <a href="github.io/devLevi"
+        <a href="https://github.com/devLevi"
           ><i class="fa fa-github" style="font-size: 42px;"></i
         ></a>
       </div>
