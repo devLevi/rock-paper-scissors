@@ -1,5 +1,10 @@
 let playerWins = 0
 let computerWins = 0
+
+let computerScore = document.getElementById('computerScore')
+let playerScore = document.getElementById('playerScore')
+let round = document.getElementById('roundCounter')
+
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
@@ -33,6 +38,6 @@ function playRound(playerSelection, computer) {
   }
 }
 
-let playerSelection = prompt('Rock Paper or Scissors?')
+// let playerSelection = prompt('Rock Paper or Scissors?')
 let computer = computerTurn()
-console.log(playRound(playerSelection, computer))
+// console.log(playRound(playerSelection, computer))``
