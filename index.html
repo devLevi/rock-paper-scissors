@@ -3,8 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <title>Rock Paper Scissors</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h2 class="pgTitle">Rock | Paper | Scissors</h2>
+      <h3 class="pgSubtitle">The ultimate game of chance</h3>
+      <p class="round">Round: <span id="roundCounter">1</span>/5</p>
+    </header>
+    <main>
+      <container>
+        <div class="compParts">
+          <div class="compIcons">
+            <p class="moveTitle">
+              Computer <br />
+              I am a robot
+            </p>
+
+            <div class="rock">
+              <img src="images/rock.png" alt="rock" />
+            </div>
+            <div class="paper">
+              <img src="images/paper.png" alt="paper" />
+            </div>
+            <div class="scissors">
+              <img src="images/scissors.png" alt="scissors" />
+            </div>
+          </div>
+        </div>
+        <div class="stats">
+          <h2 class="scoreTitle">
+            <span id="computerScore">0</span> - <span id="playerScore">0</span>
+          </h2>
+          <div class="faceOff"></div>
+        </div>
+        <div class="playerParts">
+          <div class="playerIcons">
+            <p class="moveTitle">
+              Player: <br />
+              Make your move!
+            </p>
+            <div class="rock">
+              <img class="playerImage" src="images/rock.png" alt="rock" />
+            </div>
+            <div class="paper">
+              <img class="playerImage" src="images/paper.png" alt="paper" />
+            </div>
+            <div class="scissors">
+              <img
+                class="playerImage"
+                src="images/scissors.png"
+                alt="scissors"
+              />
+            </div>
+          </div>
+        </div>
+      </container>
+    </main>
+    <footer>
+      <div>
+        <a href="github.io/devLevi"
+          ><i class="fa fa-github" style="font-size: 42px;"></i
+        ></a>
+      </div>
+      <p>
+        another sweet creation by devLevi
+      </p>
+    </footer>
+  </body>
   <script src="index.js"></script>
 </html>
